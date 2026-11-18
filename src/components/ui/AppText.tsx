@@ -1,4 +1,4 @@
-import { Text, type TextProps, type TextStyle } from 'react-native';
+import { StyleSheet, Text, useWindowDimensions, type TextProps, type TextStyle } from 'react-native';
 import { useCustomFonts } from '@/theme/FontContext';
 import { colors, fontFamilies } from '@/theme/tokens';
 const variants = {
@@ -15,20 +15,38 @@ const variants = {
 } as const;
 const weights = { regular: '400', medium: '500', semibold: '600' } as const;
 type AppTextProps = TextProps & { variant?: keyof typeof variants; muted?: boolean };
-export function AppText({ variant = 'body', muted = false, style, ...props }: AppTextProps) {
+export function AppText({
+  variant = 'body',
+  muted = false,
+  style,
+  allowFontScaling = true,
+  maxFontSizeMultiplier = variant === 'tab' ? 1.4 : variant === 'header' ? 1.6 : 2,
+  ...props
+}: AppTextProps) {
   const custom = useCustomFonts();
+  const { fontScale } = useWindowDimensions();
   const { weight, ...typography } = variants[variant];
   const font: TextStyle = custom
     ? { fontFamily: fontFamilies[weight] }
     : { fontWeight: weights[weight] };
+  const scaleLimit = maxFontSizeMultiplier ?? 0;
+  const clamped = allowFontScaling && scaleLimit > 0 && fontScale > scaleLimit;
+  // iOS can measure line height at the full system scale even when the font size is capped.
+  const resolvedStyle = clamped ? StyleSheet.flatten([typography, style]) : undefined;
+  const clampedStyle = resolvedStyle && {
+    fontSize: (resolvedStyle.fontSize ?? typography.fontSize) * scaleLimit,
+    lineHeight: (resolvedStyle.lineHeight ?? typography.lineHeight) * scaleLimit,
+  };
   return (
     <Text
       accessibilityLanguage="pt-BR"
+      allowFontScaling={allowFontScaling && !clamped}
+      maxFontSizeMultiplier={maxFontSizeMultiplier}
       accessibilityRole={
         ['hero', 'display', 'header', 'heading'].includes(variant) ? 'header' : undefined
       }
       {...props}
-      style={[{ color: muted ? colors.muted : colors.text }, typography, font, style]}
+      style={[{ color: muted ? colors.muted : colors.text }, typography, font, style, clampedStyle]}
     />
   );
 }

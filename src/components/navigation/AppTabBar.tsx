@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     flex: 1,
     minHeight: 64,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     paddingVertical: spacing.xs,
     paddingHorizontal: 4,
     gap: spacing.xs,

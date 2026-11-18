@@ -101,6 +101,7 @@ export function FormField({
     <View style={ui.gap8}>
       <AppText variant="label">{label}</AppText>
       <TextInput
+        maxFontSizeMultiplier={2}
         {...props}
         accessibilityLabel={label}
         placeholderTextColor={colors.muted}
@@ -145,6 +146,7 @@ export function SearchField({
       <Icon name="search" size={20} color={colors.muted} />
       <TextInput
         accessibilityLabel={label}
+        maxFontSizeMultiplier={2}
         placeholder={label}
         value={value}
         onChangeText={onChangeText}
