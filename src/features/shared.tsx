@@ -103,6 +103,12 @@ export function VisitCard({ visit }: { visit: Visit }) {
   const { data } = useApp();
   const place = data.places.find((item) => item.id === visit.placeId)!;
   const count = visit.items.filter((item) => item.checked).length;
+  const schedule = scheduledLabel(visit.scheduledAt, visit.status);
+  const statusLabel = {
+    in_progress: 'Em andamento',
+    completed: 'Concluída',
+    planned: 'Planejada',
+  }[visit.status];
   const title =
     visit.status === 'in_progress'
       ? 'Retomar visita'
@@ -114,23 +120,17 @@ export function VisitCard({ visit }: { visit: Visit }) {
       <PressableSurface
         style={styles.visit}
         accessibilityRole="link"
-        accessibilityLabel={`${place.name}. ${scheduledLabel(visit.scheduledAt)}. ${title}.`}
+        accessibilityLabel={`${place.name}. ${statusLabel}. ${schedule}. ${title}.`}
       >
         <View style={[ui.row, { alignItems: 'flex-start' }]}>
           <View style={ui.grow}>
             <AppText variant="title">{place.name}</AppText>
             <AppText variant="small" muted>
-              {scheduledLabel(visit.scheduledAt)}
+              {schedule}
             </AppText>
           </View>
           <Badge
-            label={
-              visit.status === 'in_progress'
-                ? 'Em andamento'
-                : visit.status === 'completed'
-                  ? 'Concluída'
-                  : 'Planejada'
-            }
+            label={statusLabel}
             tone={visit.status === 'in_progress' ? 'sage' : 'soft'}
           />
         </View>

@@ -12,7 +12,7 @@ import {
   isCurrent,
   matchesSearch,
 } from '../src/domain/compatibility.ts';
-import { parseSchedule } from '../src/domain/dates.ts';
+import { parseSchedule, scheduledLabel } from '../src/domain/dates.ts';
 
 function connection(database: DatabaseSync): Connection {
   return {
@@ -249,4 +249,7 @@ test('agenda valida datas e preserva um horário informado em São Paulo', () =>
   assert.ok(parseSchedule('', '14:00').error);
   assert.deepEqual(parseSchedule('', ''), { value: null });
   assert.equal(parseSchedule('19/11/2026', '14:30').value, '2026-11-19T17:30:00.000Z');
+  assert.equal(scheduledLabel(null, 'planned'), 'Em planejamento');
+  assert.equal(scheduledLabel(null, 'in_progress'), 'Sem horário informado');
+  assert.equal(scheduledLabel(null, 'completed'), 'Sem horário informado');
 });

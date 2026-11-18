@@ -1,3 +1,5 @@
+import type { Visit } from './models';
+
 export function formatDate(value: string, includeTime = false) {
   return new Intl.DateTimeFormat('pt-BR', {
     timeZone: 'America/Sao_Paulo',
@@ -7,8 +9,9 @@ export function formatDate(value: string, includeTime = false) {
     ...(includeTime ? ({ hour: '2-digit', minute: '2-digit' } as const) : {}),
   }).format(new Date(value));
 }
-export function scheduledLabel(value: string | null) {
-  return value ? formatDate(value, true) : 'Em planejamento';
+export function scheduledLabel(value: string | null, status?: Visit['status']) {
+  if (value) return formatDate(value, true);
+  return status === 'planned' ? 'Em planejamento' : 'Sem horário informado';
 }
 
 export function parseSchedule(day: string, time: string): { value: string | null; error?: string } {

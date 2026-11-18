@@ -40,11 +40,7 @@ export function VisitDetailsScreen({ id }: { id?: string }) {
   const quiet = assessNeed(place, 'quiet', data.evidence, data.notices, now);
   const feedback = data.reports.find((item) => item.visitId === visit.id);
   const completed = visit.status === 'completed';
-  const schedule = visit.scheduledAt
-    ? scheduledLabel(visit.scheduledAt)
-    : visit.status === 'planned'
-      ? 'Em planejamento'
-      : 'Sem horário informado';
+  const schedule = scheduledLabel(visit.scheduledAt, visit.status);
   const done = visit.items.filter((item) => item.checked).length;
   const changed = !sameNeeds(visit.needs, data.needs);
   const saveItem = () =>

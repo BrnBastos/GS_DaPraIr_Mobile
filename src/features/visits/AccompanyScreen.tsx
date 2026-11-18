@@ -107,7 +107,7 @@ export function AccompanyScreen({ visitId }: { visitId?: string }) {
       <View style={ui.gap8}>
         <AppText variant="heading">{place.name}</AppText>
         <AppText variant="small" muted>
-          {visit.scheduledAt ? scheduledLabel(visit.scheduledAt) : 'Sem horário informado'}
+          {scheduledLabel(visit.scheduledAt)}
         </AppText>
         <Badge
           label={
