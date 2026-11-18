@@ -1,6 +1,6 @@
 # Validação da versão 0.2
 
-Registro de 17/11/2026. A implementação segue o [update do plano](UPDATE_PLANO_DA_PRA_IR.md). Este documento distingue verificações executadas de atividades ainda pendentes.
+Registro atualizado em 18/11/2026. A implementação segue o [update do plano](UPDATE_PLANO_DA_PRA_IR.md).
 
 ## Ambiente
 
@@ -17,11 +17,11 @@ Registro de 17/11/2026. A implementação segue o [update do plano](UPDATE_PLANO
 | `npm run typecheck` | Aprovado, sem erros |
 | `npm run lint` | Aprovado, sem erros ou avisos |
 | `npx expo-doctor` | 21 de 21 verificações aprovadas |
-| `npx expo export --platform all --output-dir /tmp/daprair-mvp-final` | Bundles iOS, Android e Web exportados com sucesso |
+| `npx expo export --platform all --output-dir <diretório-temporário>` | Bundles iOS, Android e Web exportados com sucesso |
 | `git diff --check` | Sem erros de espaços em branco |
 | Cópias dos planos | Documentos de `docs/` preservam o conteúdo dos planos originais |
 
-A exportação verifica o empacotamento do código e dos recursos. Não equivale a executar a jornada em cada plataforma nem a produzir um APK/IPA assinado. O diretório de exportação é temporário e não é necessário para iniciar o projeto.
+A instalação com `npm ci`, os testes, o TypeScript, o lint e o Expo Doctor também foram verificados em um clone novo de `develop`. A exportação verifica o empacotamento do código e dos recursos.
 
 O runner do Node emite um aviso sobre detecção de módulos TypeScript. Os testes terminam com código zero; o projeto mantém seus arquivos de configuração CommonJS.
 
@@ -55,13 +55,13 @@ Uma consulta somente de leitura no banco do simulador confirmou:
 | Preferências salvas pela interface | `stepFree`, `quiet` |
 | Marcador de primeira carga | Presente |
 
-Em 18/11/2026, o simulador voltou a responder após o erro `cgWindowNotFound`. Com a interface ilustrada, foi possível abrir Explorar e Preferências, consultar a ficha da Clínica Jardim, navegar pelas cenas de **Ver junto**, salvar uma visita fictícia, registrar a etapa **Esperar**, finalizar a visita e salvar um retorno. As capturas atuais estão na [galeria do README](../README.md#telas-do-app); os arquivos na raiz de `docs/screenshots/` e em `docs/screenshots/v0.2/` preservam o visual anterior.
+Com a interface ilustrada, foi possível abrir Explorar e Preferências, consultar a ficha da Clínica Jardim, navegar pelas cenas de **Ver junto**, salvar uma visita fictícia, registrar a etapa **Esperar**, finalizar a visita e salvar um retorno. Após fechar e abrir o Expo Go, foi possível consultar novamente a visita concluída e seu relato. As capturas estão na [galeria do README](../README.md#telas-do-app). A [demonstração narrada](ROTEIRO_VIDEO.md) registra a jornada no Expo Go.
 
 ## Design e acessibilidade
 
 Implementados: áreas interativas com mínimo de 48, rótulos persistentes, estados selecionados anunciados, botões de navegação por passo, cabeçalho fora da rolagem, áreas seguras, formulário com proteção contra envio duplicado e mensagens de erro que preservam o preenchimento. A interface não depende de animações ou gestos laterais para avançar.
 
-Os segmentos e ações auxiliares do checklist reorganizam-se com fonte ampliada. Textos e botões podem crescer; diálogos permitem rolagem. Essas adaptações precisam da revisão visual nativa descrita abaixo.
+Na configuração de texto máxima do iOS, foram conferidos os cabeçalhos, os rótulos das abas, os filtros e o campo de busca. A edição de preferências abriu e exibiu o retorno de salvamento. Os textos de conteúdo e os campos aumentam até 2×, com limites próprios de 1,6× para os títulos do cabeçalho e 1,4× para os rótulos da barra de abas. O limite de texto inclui a altura da linha nos componentes de texto do app.
 
 Contraste calculado a partir dos tokens, por luminância relativa sRGB:
 
@@ -76,16 +76,12 @@ Contraste calculado a partir dos tokens, por luminância relativa sRGB:
 
 O cálculo dos tokens não comprova acessibilidade da experiência completa. Não foi realizada avaliação de usabilidade com famílias.
 
-## Pendências de validação e entrega
+## Validação adicional em dispositivos
 
 - Percorrer a jornada inteira pela interface em celular físico, incluindo fechamento e reabertura.
 - Conferir também no Android o seletor de data/horário, teclado, botão de voltar e retomada.
-- Revisar em viewport de 360 × 800 e na maior fonte do sistema; conferir rodapés e diálogos.
+- Conferir rodapés e diálogos em telas menores com fonte ampliada.
 - Conferir VoiceOver/TalkBack: ordem de leitura, foco após navegação, seleções e anúncio de erros.
-- Gravar o vídeo de até três minutos.
-- Preencher os links de repositório e vídeo; enviar a entrega pela equipe.
-
-O [roteiro do vídeo](ROTEIRO_VIDEO.md) descreve a demonstração. A identificação da equipe já está no README.
 
 ## Dependências
 

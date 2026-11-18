@@ -16,7 +16,7 @@ MVP mobile em português para ajudar PCDs, pessoas autistas e famílias a prepar
 | Colaboração             | Relatos e avisos anônimos, simulados localmente                                                                                     |
 | Integrantes e RMs       | [Equipe](#equipe)                                                                                                                  |
 | Repositório GitHub      | [BrnBastos/GS_DaPraIr_Mobile](https://github.com/BrnBastos/GS_DaPraIr_Mobile)                                                          |
-| Vídeo, até três minutos | Link a inserir após a gravação. [Roteiro da demonstração](docs/ROTEIRO_VIDEO.md)                                                     |
+| Vídeo da demonstração   | [Dá Pra Ir? rodando no Expo Go (MP4, 1min35s)](https://github.com/BrnBastos/GS_DaPraIr_Mobile/releases/download/v0.2.0/Da-Pra-Ir-com-narracao.mp4) |
 
 ### Equipe
 
@@ -66,7 +66,7 @@ O Expo Go precisa suportar **SDK 57**. A escolha foi feita para compatibilidade 
 Clone o repositório e rode na pasta do aplicativo:
 
 ```bash
-git clone https://github.com/BrnBastos/GS_DaPraIr_Mobile.git
+git clone --branch develop https://github.com/BrnBastos/GS_DaPraIr_Mobile.git
 cd GS_DaPraIr_Mobile
 nvm use
 npm ci
@@ -152,12 +152,10 @@ Os oito estabelecimentos, endereços, guias e relatos iniciais são fictícios. 
 
 As contribuições ficam neste aparelho. Não há sincronização entre famílias, publicação externa, agendamento real, rotas de deslocamento, detecção de presença ou orientação clínica. A etapa atual é registrada pela própria pessoa.
 
-Os checks e as limitações dos testes estão em [VALIDACAO.md](docs/VALIDACAO.md). A revisão completa com VoiceOver/TalkBack e a execução em celular físico precisam ser concluídas e registradas antes da entrega acadêmica. A auditoria npm herdada do SDK 57 apresenta seis alertas transitivos; a documentação de validação registra o acompanhamento, sem forçar uma troca incompatível do SDK.
+As verificações incluem a jornada no simulador iOS, a fonte máxima do sistema e a persistência com SQLite real. A validação completa em aparelho físico e com leitores de tela ainda está pendente. Confira a cobertura e os alertas transitivos de dependências em [VALIDACAO.md](docs/VALIDACAO.md).
 
 ## Entrega acadêmica
 
-O atendimento ao enunciado e as pendências de cada entregável estão em [CONFERENCIA_REQUISITOS.md](docs/CONFERENCIA_REQUISITOS.md).
-
-O link do vídeo será incluído após sua publicação. A galeria acima mostra a versão atual; o [roteiro de até três minutos](docs/ROTEIRO_VIDEO.md) descreve a demonstração.
+O vídeo narrado mostra uma família consultando um local, preparando a visita, acompanhando sua etapa e registrando como foi. A versão para avaliação está em `develop`. Consulte o [roteiro do vídeo](docs/ROTEIRO_VIDEO.md) e a [conferência do enunciado](docs/CONFERENCIA_REQUISITOS.md).
 
 Prazo do enunciado registrado no plano: **19/11, às 23h55**, horário de São Paulo. O envio do link do GitHub no Teams fica a cargo de um integrante.
