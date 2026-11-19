@@ -2,7 +2,7 @@
 
 Conferência da versão 0.2.0, atualizada em 18/11/2026 com base no enunciado enviado pela equipe. A rubrica completa da tarefa não foi fornecida.
 
-A versão de entrega está em `develop`. O app foi executado no Expo Go e o README reúne a Ficha, as instruções, as capturas e o vídeo. O envio do repositório pelo Teams fica com a equipe.
+A versão de entrega está na branch padrão `main`. O app foi executado no Expo Go e o README reúne a Ficha, as instruções, as capturas e o vídeo. O envio do repositório pelo Teams fica com a equipe.
 
 ## Os seis critérios
 

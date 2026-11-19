@@ -66,7 +66,7 @@ O Expo Go precisa suportar **SDK 57**. A escolha foi feita para compatibilidade 
 Clone o repositório e rode na pasta do aplicativo:
 
 ```bash
-git clone --branch develop https://github.com/BrnBastos/GS_DaPraIr_Mobile.git
+git clone https://github.com/BrnBastos/GS_DaPraIr_Mobile.git
 cd GS_DaPraIr_Mobile
 nvm use
 npm ci
@@ -156,6 +156,6 @@ As verificações incluem a jornada no simulador iOS, a fonte máxima do sistema
 
 ## Entrega acadêmica
 
-O vídeo narrado mostra uma família consultando um local, preparando a visita, acompanhando sua etapa e registrando como foi. A versão para avaliação está em `develop`. Consulte o [roteiro do vídeo](docs/ROTEIRO_VIDEO.md) e a [conferência do enunciado](docs/CONFERENCIA_REQUISITOS.md).
+O vídeo narrado mostra uma família consultando um local, preparando a visita, acompanhando sua etapa e registrando como foi. Consulte o [roteiro do vídeo](docs/ROTEIRO_VIDEO.md) e a [conferência do enunciado](docs/CONFERENCIA_REQUISITOS.md).
 
 Prazo do enunciado registrado no plano: **19/11, às 23h55**, horário de São Paulo. O envio do link do GitHub no Teams fica a cargo de um integrante.
