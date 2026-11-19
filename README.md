@@ -28,7 +28,7 @@ MVP mobile em português para ajudar PCDs, pessoas autistas e famílias a prepar
 | Bruno Silva     | 550416 |
 | João Hoffmann   | 550763 |
 
-## O que está implementado na versão 0.2
+## O que está implementado
 
 - Explorar com busca sem distinção de acentos, filtros e fotos locais.
 - Preferências por mobilidade, ambiente e comunicação, sem pedir diagnóstico.
