@@ -16,7 +16,7 @@ MVP mobile em português para ajudar PCDs, pessoas autistas e famílias a prepar
 | Colaboração             | Relatos e avisos anônimos, simulados localmente                                                                                     |
 | Integrantes e RMs       | [Equipe](#equipe)                                                                                                                  |
 | Repositório GitHub      | [BrnBastos/GS_DaPraIr_Mobile](https://github.com/BrnBastos/GS_DaPraIr_Mobile)                                                          |
-| Vídeo da demonstração   | [Dá Pra Ir? rodando no Expo Go (MP4, 1min35s)](https://github.com/BrnBastos/GS_DaPraIr_Mobile/releases/download/v0.2.0/Da-Pra-Ir-com-narracao.mp4) |
+| Vídeo da demonstração   | [Assistir no YouTube (1min35s)](https://youtu.be/YiLNqD0ylUU) · [Baixar o MP4](https://github.com/BrnBastos/GS_DaPraIr_Mobile/releases/download/v0.2.0/Da-Pra-Ir-com-narracao.mp4) |
 
 ### Equipe
 
